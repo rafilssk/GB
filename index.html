@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gunbound Mobile ICE - Calculadora de Vento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🎯 Gunbound Mobile ICE</h1>
+            <p>Calculadora de Vento Avançada</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Painel de Configuração -->
+            <div class="config-panel">
+                <h2>⚙️ Configurações de Tiro</h2>
+                <p class="subtitle">Configure os parâmetros base para o cálculo</p>
+
+                <div class="form-group">
+                    <label for="screen-type">Tipo de Tela</label>
+                    <select id="screen-type">
+                        <option value="1_tela">1 Tela</option>
+                        <option value="2_telas">2 Telas</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="base-angle">Ângulo Base (°)</label>
+                    <select id="base-angle">
+                        <option value="50">50°</option>
+                        <option value="60">60°</option>
+                        <option value="70">70°</option>
+                        <option value="80">80°</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="distance">Distância (SD)</label>
+                    <select id="distance">
+                        <option value="0.125">1/8 SD</option>
+                        <option value="0.25">1/4 SD</option>
+                        <option value="0.375">3/8 SD</option>
+                        <option value="0.5" selected>1/2 SD</option>
+                        <option value="0.625">5/8 SD</option>
+                        <option value="0.75">3/4 SD</option>
+                        <option value="0.875">7/8 SD</option>
+                        <option value="1.0">1 SD</option>
+                    </select>
+                </div>
+
+                <div class="separator"></div>
+
+                <h3>🌪️ Configurações de Vento</h3>
+
+                <div class="form-group">
+                    <label for="wind-strength">Força do Vento (0-26)</label>
+                    <input type="number" id="wind-strength" min="0" max="26" value="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="wind-direction">Direção do Vento</label>
+                    <select id="wind-direction">
+                        <option value="Cima">Cima</option>
+                        <option value="Cima-Direita">Cima-Direita</option>
+                        <option value="Direita">Direita</option>
+                        <option value="Baixo-Direita">Baixo-Direita</option>
+                        <option value="Baixo">Baixo</option>
+                        <option value="Baixo-Esquerda">Baixo-Esquerda</option>
+                        <option value="Esquerda">Esquerda</option>
+                        <option value="Cima-Esquerda">Cima-Esquerda</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Painel de Resultados -->
+            <div class="results-panel">
+                <h2>🎯 Resultados do Cálculo</h2>
+                <p class="subtitle">Valores ajustados para o vento atual</p>
+
+                <div id="results-content">
+                    <!-- Valores Base -->
+                    <div class="result-section base-values">
+                        <h4>Valores Base (Vento 0)</h4>
+                        <div class="values-grid">
+                            <div class="value-item">
+                                <div class="value" id="base-angle-display">50°</div>
+                                <div class="label">Ângulo</div>
+                            </div>
+                            <div class="value-item">
+                                <div class="value" id="base-power-display">1.51</div>
+                                <div class="label">Força</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Valores Ajustados -->
+                    <div class="result-section adjusted-values">
+                        <h4>Valores Ajustados</h4>
+                        <div class="values-grid">
+                            <div class="value-item">
+                                <div class="value adjusted" id="adjusted-angle-display">50.0°</div>
+                                <div class="label">Ângulo Final</div>
+                                <div class="change-badge" id="angle-change"></div>
+                            </div>
+                            <div class="value-item">
+                                <div class="value adjusted" id="adjusted-power-display">1.51</div>
+                                <div class="label">Força Final</div>
+                                <div class="change-badge" id="power-change"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Condições do Vento -->
+                    <div class="result-section wind-conditions">
+                        <h4>Condições do Vento</h4>
+                        <div class="values-grid">
+                            <div class="value-item">
+                                <div class="value" id="wind-strength-display">0</div>
+                                <div class="label">Força</div>
+                            </div>
+                            <div class="value-item">
+                                <div class="value" id="wind-direction-display">Cima</div>
+                                <div class="label">Direção</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Baseado nos dados originais do Gunbound Mobile ICE</p>
+            <p>Desenvolvido para facilitar os cálculos de vento</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

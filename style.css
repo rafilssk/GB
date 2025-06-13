@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Main Content */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Panels */
+.config-panel, .results-panel {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.config-panel:hover, .results-panel:hover {
+    transform: translateY(-5px);
+}
+
+.config-panel h2, .results-panel h2 {
+    color: #4a5568;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.subtitle {
+    color: #718096;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.form-group select, .form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group select:focus, .form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group input[type="number"] {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Separator */
+.separator {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+    margin: 25px 0;
+}
+
+.config-panel h3 {
+    color: #38a169;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* Results */
+.result-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.base-values {
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+}
+
+.adjusted-values {
+    background: #f0fff4;
+    border: 2px solid #9ae6b4;
+}
+
+.wind-conditions {
+    background: #ebf8ff;
+    border: 2px solid #90cdf4;
+}
+
+.result-section h4 {
+    margin-bottom: 15px;
+    color: #4a5568;
+    font-size: 1.1rem;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.value-item {
+    text-align: center;
+}
+
+.value {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.base-values .value {
+    color: #3182ce;
+}
+
+.adjusted-values .value.adjusted {
+    color: #38a169;
+    font-size: 2.5rem;
+}
+
+.wind-conditions .value {
+    color: #3182ce;
+    font-size: 1.5rem;
+}
+
+.label {
+    font-size: 0.8rem;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Change Badges */
+.change-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-top: 5px;
+    min-height: 20px;
+}
+
+.change-badge.positive {
+    background: #fed7d7;
+    color: #c53030;
+}
+
+.change-badge.negative {
+    background: #e6fffa;
+    color: #319795;
+}
+
+.change-badge.neutral {
+    background: #edf2f7;
+    color: #4a5568;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    color: white;
+    opacity: 0.8;
+}
+
+.footer p {
+    margin-bottom: 5px;
+}
+
+/* Loading State */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.result-section {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .config-panel, .results-panel {
+        padding: 20px;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .value {
+        font-size: 1.5rem;
+    }
+    
+    .adjusted-values .value.adjusted {
+        font-size: 2rem;
+    }
+}
+
